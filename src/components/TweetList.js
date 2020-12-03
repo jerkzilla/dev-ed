@@ -1,12 +1,17 @@
 import React from "react";
 import Tweet from "./Tweet";
 
-export default function TweetList({ name, message }) {
+export default function TweetList({ name, tweets, setTweets }) {
   return (
     <div className="tweet-list">
-      <Tweet name={name} message={message} />
-      <Tweet name={name} message={message} />
-      <Tweet name={name} message={message} />
+      {tweets.map((tweet) => (
+        <Tweet
+          setTweets={setTweets}
+          name={name}
+          tweet={tweet}
+          tweets={tweets}
+        />
+      ))}
     </div>
   );
 }
